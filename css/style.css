@@ -3,13 +3,14 @@
   --secondary-color: #16a085;
 }
 * {
+  /* Below is the standard CSS code one should add to get rid of default margins and padding which most of tge HTML elements have */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   user-select: none;
 }
-body {
+/* body {
   position: relative;
   min-height: 100vh;
   text-align: center;
@@ -17,7 +18,7 @@ body {
   justify-content: space-between;
   flex-direction: column;
   align-items: stretch;
-}
+} */
 
 /* Title CSS */
 .title {
@@ -30,7 +31,7 @@ body {
 }
 
 /* Navbar CSS */
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +42,7 @@ body {
   padding-block: 0.6em;
   background-color: var(--secondary-color);
   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+} */
 .navbar a {
   all: unset;
   cursor: pointer;
@@ -73,17 +74,18 @@ body {
 
 /* Center css */
 .center {
-  display: grid;
-  grid-template-columns: 800px 700px;
-  grid-gap: 10px;
+  /* display: grid; */
+  /* grid-template-columns: 800px 700px;
+  grid-gap: 10px; */
   margin: 0 auto;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 5px 10px 4px; */
   height: 500px;
   width: 800px;
   max-height: 731px;
   margin-left: 10px
 }
 .value-centered{
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
@@ -102,6 +104,10 @@ body {
   text-align: left;
 
 }
+
+/* #codehljs > #mergeSort{
+  background-color: black;
+} */
 
 .cell {
   display: flex;
@@ -145,7 +151,7 @@ body {
   color: #eb2c13;
 }
 footer {
-  text-align: left;
+  text-align: center;
   font-size: 18px;
   color: #2c3e50;
   padding: 1.6em;
@@ -160,36 +166,33 @@ footer {
   font-size: 20px;
 }
 
-@media screen and (max-width: 550px) {
+/* @media screen and (max-width: 600px) {
+  .navbar {
+    gap: 0.4em;
+  }
+  .title {
+    font-size: 17px;
+  }
+  .navbar *,
+  .navbar a {
+    font-size: 14px;
+  }
+  .footer {
+    font-size: 18px;
+  }
+  a#random {
+    order: 4;
+  }
+  a.start {
+    order: 5;
+  }
+} */
+/* @media screen and (max-width: 550px) {
   .center {
     width: 95%;
   }
-}
+} */
 .fix-footer{
-  background-color: rgb(22, 160, 133);
+  background-color: gray;
   color: white;
-  margin-top: 500px
-}
-// sau khi bấm vào link
-#idfb:link{
-  color: white;
-}
-// trước khi bấm
-#idfb:visited {
-  color: black;
-}
-#idfb:hover {
-  color: red;
-}
-#contact{
-  font-family: 'Cinnamon Coffe Cake', sans-serif;
-  font-size: 30px;
-  text-align: center;
-}
-#mssv{
-  color: white;
-  margin-left: 1000px;
-  font-family: 'Cinnamon Coffe Cake', sans-serif;
-  font-size: 25px
-
 }

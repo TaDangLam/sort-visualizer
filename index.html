@@ -12,104 +12,112 @@
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-  
+  <link rel="stylesheet" href="vendor/bootstrap-4.6.2-dist/css/bootstrap.css">
   <title>Merge Sort</title>
 </head>
 
 <body>
-  <div class="nav-container">
-    <h2 class="title" onclick="window.location.reload()" style="font-family: 'Cinnamon Coffe Cake', sans-serif; font-size: 30px;">
-      Merge Sort Visualizer
-    </h2>
-    <div class="navbar" id="navbar">
-      <a id="random" onclick="RenderScreen()">Random</a>
-      <span class="options">
-        <select name="select array size" id="menu" class="size-menu" onchange="RenderScreen()">
-          <option value="0">Array size</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-          <option value="30">30</option>
-          <option value="40">40</option>
-          <option value="50">50</option>
-          <option value="60">60</option>
-          <option value="70">70</option>
-          <option value="80">80</option>
-          <option value="90">90</option>
-          <option value="100">100</option>
-        </select>
-      </span>
-      <span class="options">
-        <select name="speed of visualization" id="menu" class="speed-menu">
-          <option value="0">Speed</option>
-          <option value="0.5">0.50x</option>
-          <option value="0.75">0.75x</option>
-          <option value="1">1.00x</option>
-          <option value="2">2.00x</option>
-          <option value="4">4.00x</option>
-        </select>
-      </span>
-      <a class="start" onclick="start()">Sort</a>
-      <div id="mssv">B1906703</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="title mb-0" onclick="window.location.reload()"
+          style="font-family: 'Cinnamon Coffe Cake', sans-serif;">
+          Merge Sort Visualizer
+        </h2>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+          <a id="random" onclick="RenderScreen()" class="nav-link ">Random</a>
+          <span class="options nav-link">
+            <select name="select array size" id="menu" class="size-menu ml-1" onchange="RenderScreen()">
+              <option value="0">Array size</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+              <option value="90">90</option>
+              <option value="100">100</option>
+            </select>
+          </span>
+          <span class="options nav-link">
+            <select name="speed of visualization" id="menu" class="speed-menu ml-0">
+              <option value="0">Speed</option>
+              <option value="0.5">0.50x</option>
+              <option value="0.75">0.75x</option>
+              <option value="1">1.00x</option>
+              <option value="2">2.00x</option>
+              <option value="4">4.00x</option>
+            </select>
+          </span>
+          <a class="start ml-auto" onclick="start()">Sort</a>
+        </nav>
+      </div>
     </div>
-  </div>
-  <div class="center">
-    
-      <div class="array"></div>
-    
-    
-    <div class="show-code2">
-      <pre id="prehljs">
-        <code class="javascript hljs" id="codehljs">
-          
-            MergeSort = async () => {
-                await this.MergeDivider(0, this.size - 1);
-                for(let counter = 0 ; counter < this.size ; ++counter) {
-                    this.list[counter].setAttribute("class", "cell done");
-                }
-            }
-          
-            MergeDivider = async (start, end) => {
-                if(start < end) {
-                    let mid = start + Math.floor((end - start)/2);
-                    await this.MergeDivider(start, mid);
-                    await this.MergeDivider(mid+1, end);
-                     await this.Merge(start, mid, end);
-                }
-            }
-            Merge = async (start, mid, end) => {
-                let newList = new Array();
-                let frontcounter = start;
-                let midcounter = mid + 1;
-                while(frontcounter <= mid && midcounter <= end) {
-                    let fvalue = Number(this.list[frontcounter].getAttribute("value"));
-                    let svalue = Number(this.list[midcounter].getAttribute("value"));
-                    if(fvalue >= svalue) {
-                        newList.push(svalue);
-                        ++midcounter;
-                    }else  {
-                        newList.push(fvalue);
-                        ++frontcounter;
+
+
+    <div class="center row">
+        <div class="col-7 array"></div>
+        <div class="col-5 show-code2">
+          <pre id="prehljs">
+                <code class="javascript hljs" id="codehljs">
+                  
+                    MergeSort = async () => {
+                        await this.MergeDivider(0, this.size - 1);
+                        for(let counter = 0 ; counter < this.size ; ++counter) {
+                            this.list[counter].setAttribute("class", "cell done");
+                        }
                     }
-                }
-            }
-        </code>
-    </pre>
+                  
+                    MergeDivider = async (start, end) => {
+                        if(start < end) {
+                            let mid = start + Math.floor((end - start)/2);
+                            await this.MergeDivider(start, mid);
+                            await this.MergeDivider(mid+1, end);
+                             await this.Merge(start, mid, end);
+                        }
+                    }
+                    Merge = async (start, mid, end) => {
+                        let newList = new Array();
+                        let frontcounter = start;
+                        let midcounter = mid + 1;
+                        while(frontcounter <= mid && midcounter <= end) {
+                            let fvalue = Number(this.list[frontcounter].getAttribute("value"));
+                            let svalue = Number(this.list[midcounter].getAttribute("value"));
+                            if(fvalue >= svalue) {
+                                newList.push(svalue);
+                                ++midcounter;
+                            }else  {
+                                newList.push(fvalue);
+                                ++frontcounter;
+                            }
+                        }
+                    }
+                </code>
+            </pre>
+        </div>
+      
+
+
+
+
+
+
+
     </div>
   </div>
-  <footer class="fix-footer">
-    <div ><h3 id="contact">Contact</h3></div><br>
-    <i class="fa fa-user-o" aria-hidden="true">&nbsp;&nbsp; Tạ Đăng Lâm</i><br><br>
-    <i class="fa fa-address-card fix-card" aria-hidden="true">&nbsp;&nbsp;&nbsp;B1906703</i><br><br>
-    <i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;lamb1906703@student.ctu.edu.vn</i><br><br>
-    <i class="fa fa-facebook" aria-hidden="true">&nbsp;&nbsp; <a id="idfb" href="https://www.facebook.com/profile.php?id=100010948332178">https://www.facebook.com/profile.php?id=100010948332178</a></i>
-  </footer>
+
+
   <script src="./scripts/app.js"></script>
   <script src="./scripts/helper.js"></script>
   <script src="./scripts/sort-algorithms.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
+  <script src="vendor/bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+  <!-- <script src="vendor/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>
